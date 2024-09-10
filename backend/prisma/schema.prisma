@@ -18,3 +18,36 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Customer {
+  id          Int      @id @default(autoincrement())
+  name        String?
+  address     String?
+  job_lcation String?
+  Invoice     Invoice?
+}
+
+model Invoice {
+  id           Int      @id @default(autoincrement())
+  customer     Customer @relation(fields: [customer_id], references: [id])
+  customer_id  Int      @unique
+  item         Item[]
+  total_amount Int?
+  date         String?
+  Note         Note[]
+}
+
+model Item {
+  id          Int      @id @default(autoincrement())
+  description String?
+  amount      Int?
+  Invoice     Invoice? @relation(fields: [invoiceId], references: [id])
+  invoiceId   Int?
+}
+
+model Note {
+  id          Int      @id @default(autoincrement())
+  description String?
+  Invoice     Invoice? @relation(fields: [invoiceId], references: [id])
+  invoiceId   Int?
+}

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ShellBar } from "@ui5/webcomponents-react";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Poppins({
+    subsets: ["latin"],
+    weight: "400"
+});
 
 export const metadata: Metadata = {
     title: "Dahill",
@@ -20,7 +23,7 @@ export default function RootLayout({
             <body className={inter.className}>
                 <div className="">
                     <ShellBar
-                        primaryTitle="Dahill Construction"
+                        primaryTitle="SCT Bangla"
                         showProductSwitch
                     ></ShellBar>
                 </div>
