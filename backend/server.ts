@@ -1,13 +1,14 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-
+const customerRoutes = require('./routes/customerRouter');
 const prisma = new PrismaClient();
 const app = express();
+
 app.use(express.json());
 
-// const userRoutes = require('./routes/user');
-// app.use('/api', userRoutes);
-// get all user
+// Use the customer routes under the '/api/customer' path
+app.get('/api/customer', customerRoutes);
+
 app.get("/user", async (req: any, res: any) => {
     try {
         const users = await prisma.user.findMany({});
