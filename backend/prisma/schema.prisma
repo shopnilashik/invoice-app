@@ -20,11 +20,11 @@ model User {
 }
 
 model Customer {
-  id          Int      @id @default(autoincrement())
-  name        String?
-  address     String?
-  job_lcation String?
-  Invoice     Invoice?
+  id           Int      @id @default(autoincrement())
+  name         String?
+  address      String?
+  job_location String?
+  Invoice      Invoice?
 }
 
 model Invoice {
