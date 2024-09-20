@@ -103,6 +103,19 @@ app.get("/customer", async (req: any, res: any) => {
     }
 });
 
+app.get("/customer/:id", async (req: any, res: any) => {
+    const id = req.params.id;
+    try {
+        const user = await prisma.user.findUnique({
+            where: { id: parseInt(id) },
+        });
+        res.send(user);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
 });

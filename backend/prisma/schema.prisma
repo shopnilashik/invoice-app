@@ -24,6 +24,7 @@ model Customer {
   name         String?
   address      String?
   job_location String?
+  contact      String?
   Invoice      Invoice?
 }
 

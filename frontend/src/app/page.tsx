@@ -9,6 +9,11 @@ export default function Home() {
                         <p>All Customer</p>
                     </div>
                 </Link>
+                <Link href={"/customer/1"}>
+                    <div className="h-[170px] w-[170px] rounded-lg bg-white hover:bg-gray-50 flex flex-row justify-center items-center">
+                        <p>Customer</p>
+                    </div>
+                </Link>
             </div>
         </main>
     );

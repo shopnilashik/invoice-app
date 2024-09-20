@@ -1,6 +1,7 @@
 "use client";
 import { environment } from "../../../environment";
 import { Button } from "@ui5/webcomponents-react";
+import Link from "next/link";
 
 // export default async function Customer() {
 //     const url = `${environment.apiURL}/customer`
@@ -50,9 +51,9 @@ export default function Customer() {
         fetchData();
     }, []);
 
-    const dd = ()=> {
-        alert()
-    }
+    const dd = () => {
+        alert();
+    };
     return (
         <div className="mt-10 w-full flex justify-center">
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border w-[95%]">
@@ -73,13 +74,26 @@ export default function Customer() {
                                         </p>
                                     </div>
                                     <div className="flex items-center">
-                                        <Button
-                                            icon="delete"
-                                            onClick={() =>
-                                                
+                                        <button
+                                            onClick={() => (
+                                            
+                                                <Link
+                                                    href={`/customer/=${customerData.id}`}
+                                                ></Link>
+                                            )}
+                                        >
+                                            details
+                                        </button>
+                                        {/* <Button
+                                            icon="decline"
+                                            onClick={() => (
                                                 alert(customerData.id)
-                                            }
-                                        ></Button>
+                                                <Link
+                                                    href={`/${customerData.id}`}
+                                                >
+                                                </Link>
+                                            )}
+                                        ></Button> */}
                                     </div>
                                 </div>
                             </div>
