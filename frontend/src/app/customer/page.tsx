@@ -1,5 +1,6 @@
-"use client"; 
+"use client";
 import { environment } from "../../../environment";
+import { Button } from "@ui5/webcomponents-react";
 
 // export default async function Customer() {
 //     const url = `${environment.apiURL}/customer`
@@ -33,9 +34,6 @@ import { environment } from "../../../environment";
 //     );
 // }
 
-
-
-
 import { useState, useEffect } from "react";
 export default function Customer() {
     const [customer, setCustomer] = useState<any[]>([]);
@@ -51,6 +49,10 @@ export default function Customer() {
         }
         fetchData();
     }, []);
+
+    const dd = ()=> {
+        alert()
+    }
     return (
         <div className="mt-10 w-full flex justify-center">
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border w-[95%]">
@@ -59,14 +61,27 @@ export default function Customer() {
                         customer.map((customerData) => (
                             <div
                                 key={customerData.id}
-                                className="hover:bg-gray-100 leading-tight p-3 rounded-lg"
+                                className="hover:bg-gray-100 leading-tight p-3 rounded-lg border-b-2 border-gray-300"
                             >
-                                <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                                    {customerData.name}
-                                </h6>
-                                <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700">
-                                    {`${customerData.address} - ${customerData.job_location}`}
-                                </p>
+                                <div className="flex flex-row justify-between">
+                                    <div className="">
+                                        <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
+                                            {customerData.name}
+                                        </h6>
+                                        <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700">
+                                            {`${customerData.address} - ${customerData.job_location}`}
+                                        </p>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <Button
+                                            icon="delete"
+                                            onClick={() =>
+                                                
+                                                alert(customerData.id)
+                                            }
+                                        ></Button>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     ) : (
@@ -77,4 +92,3 @@ export default function Customer() {
         </div>
     );
 }
-
