@@ -74,16 +74,12 @@ export default function Customer() {
                                         </p>
                                     </div>
                                     <div className="flex items-center">
-                                        <button
-                                            onClick={() => (
-                                            
-                                                <Link
-                                                    href={`/customer/=${customerData.id}`}
-                                                ></Link>
-                                            )}
+                                        <Link
+                                            href={`/customer/${customerData.id}`}
                                         >
                                             details
-                                        </button>
+                                        </Link>
+
                                         {/* <Button
                                             icon="decline"
                                             onClick={() => (
